@@ -184,14 +184,14 @@ function generateSites(count: number, startIndex: number, seed: number): Asset[]
 
     // Drone: 10–15 km from the ground station, below the cloud deck (3–6 km alt).
     const dBearing = rand() * Math.PI * 2;
-    const dDistKm = 10 + rand() * 5;
+    const dDistKm = 10.5 + rand() * 4;
     const drnLat = gsLat + (Math.cos(dBearing) * dDistKm) / KM_PER_DEG;
     const drnLon = gsLon + (Math.sin(dBearing) * dDistKm) / (KM_PER_DEG * Math.cos((gsLat * Math.PI) / 180));
     const drnAlt = +(3 + rand() * 3).toFixed(1);
 
     // HAPS: 2–5 km horizontally from its drone, in the stratosphere above clouds.
     const hBearing = rand() * Math.PI * 2;
-    const hDistKm = 2 + rand() * 3;
+    const hDistKm = 2.5 + rand() * 2;
     const hapsLat = drnLat + (Math.cos(hBearing) * hDistKm) / KM_PER_DEG;
     const hapsLon = drnLon + (Math.sin(hBearing) * hDistKm) / (KM_PER_DEG * Math.cos((drnLat * Math.PI) / 180));
     const hapsAlt = +(18 + rand() * 2).toFixed(1);
