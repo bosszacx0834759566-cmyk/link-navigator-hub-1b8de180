@@ -237,12 +237,12 @@ export const ASSETS: Asset[] = [
   { id: 'sat-ind', name: 'LEO-7', kind: 'satellite', lat: 48, lon: 62, altKm: 675, role: 'Orbital standby', region: 'Eurasia', health: 'NOMINAL' },
 
   // HAPS — stratospheric, 18-20 km
-  { id: 'haps-th', name: 'HAPS-1', kind: 'haps', lat: 13.62, lon: 100.31, altKm: 19, role: 'Stratospheric relay over Thailand', region: 'Thailand', health: 'NOMINAL' },
-  { id: 'haps-us', name: 'HAPS-2', kind: 'haps', lat: 40.05, lon: -105.32, altKm: 19.5, role: 'Stratospheric relay over United States', region: 'United States', health: 'NOMINAL' },
+  { id: 'haps-th', name: 'HAPS-1', kind: 'haps', lat: 13.68, lon: 100.45, altKm: 19, role: 'Stratospheric relay over Thailand', region: 'Thailand', health: 'NOMINAL' },
+  { id: 'haps-us', name: 'HAPS-2', kind: 'haps', lat: 39.85, lon: -105.07, altKm: 19.5, role: 'Stratospheric relay over United States', region: 'United States', health: 'NOMINAL' },
 
   // Relay drones
-  { id: 'drn-th', name: 'Drone-1', kind: 'drone', lat: 13.4, lon: 100.2, altKm: 4, role: 'Low-altitude relay over Thailand', region: 'Thailand', health: 'NOMINAL' },
-  { id: 'drn-us', name: 'Drone-2', kind: 'drone', lat: 40.1, lon: -105.4, altKm: 4, role: 'Low-altitude relay over United States', region: 'United States', health: 'NOMINAL' },
+  { id: 'drn-th', name: 'Drone-1', kind: 'drone', lat: 13.66, lon: 100.44, altKm: 4, role: 'Low-altitude relay over Thailand', region: 'Thailand', health: 'NOMINAL' },
+  { id: 'drn-us', name: 'Drone-2', kind: 'drone', lat: 39.83, lon: -105.08, altKm: 4, role: 'Low-altitude relay over United States', region: 'United States', health: 'NOMINAL' },
 
   // Ground stations
   { id: 'gs-th', name: 'GS-1', kind: 'ground', lat: 13.75, lon: 100.52, altKm: 0, role: 'Primary gateway', region: 'Thailand', health: 'NOMINAL' },
