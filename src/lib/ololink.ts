@@ -402,7 +402,7 @@ export const SCENARIOS: Record<ScenarioId, ScenarioProfile> = {
     weather: CLOUD_CELLS,
     ai: {
       analysis: ['Cloud layer detected at 12 km', 'Direct laser link unavailable', 'FSO viable above cloud deck'],
-      recommendation: ['Reroute via HAPS-TH-01', 'Drone Alpha microwave hop', 'Terminate at GS Bangkok'],
+      recommendation: ['Reroute via HAPS-1', 'Drone-1 microwave hop', 'Terminate at GS-1'],
       confidence: 94,
       action: 'REROUTE VIA HAPS',
     },
@@ -422,7 +422,7 @@ export const SCENARIOS: Record<ScenarioId, ScenarioProfile> = {
     weather: RAIN_CELLS,
     ai: {
       analysis: ['Rain attenuation 11.2 dB/km', 'Optical and FSO unavailable', 'Microwave margin acceptable'],
-      recommendation: ['Shift traffic to HAPS-US-01', 'Drone Bravo microwave hop', 'Terminate at GS Denver'],
+      recommendation: ['Shift traffic to HAPS-2', 'Drone-2 microwave hop', 'Terminate at GS-2'],
       confidence: 96,
       action: 'ENGAGE MICROWAVE',
     },
@@ -445,7 +445,7 @@ export const SCENARIOS: Record<ScenarioId, ScenarioProfile> = {
     weather: STORM_CELLS,
     ai: {
       analysis: ['Severe storm detected over Thailand', 'All optical links unavailable', 'Route recalculating every 30 s'],
-      recommendation: ['HAPS-TH-01', 'Relay Drone Alpha', 'Microwave link', 'Ground Station Bangkok'],
+      recommendation: ['HAPS-1', 'Relay Drone-1', 'Microwave link', 'GS-1'],
       confidence: 96,
       action: 'AUTO REROUTE',
     },
