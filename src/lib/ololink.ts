@@ -161,6 +161,51 @@ function generateFleet(spec: FleetSpec): Asset[] {
   return out;
 }
 
+/** ~1 degree latitude ≈ 111 km; used to place cluster members km-accurately. */
+const KM_PER_DEG = 111;
+
+/**
+ * Generate co-located operation sites: each site N is a cluster of
+ * HAPS-N (18–20 km, above the cloud deck), Drone-N (below the clouds,
+ * 2–5 km horizontally from its HAPS) and GS-N (10–15 km from the drone).
+ * Sites themselves are spread around the globe for worldwide coverage.
+ */
+function generateSites(count: number, startIndex: number, seed: number): Asset[] {
+  const rand = mulberry32(seed);
+  const out: Asset[] = [];
+  for (let i = 0; i < count; i++) {
+    const n = startIndex + i;
+    const region = FLEET_REGIONS[i % FLEET_REGIONS.length]!;
+    const healthOf = (): Health => (rand() < 0.88 ? 'NOMINAL' : rand() < 0.75 ? 'DEGRADED' : 'OFFLINE');
+
+    // Ground station anchor — sites spread across longitudes, mid-latitudes.
+    const gsLon = -180 + ((i + 0.5) / count) * 360 + (rand() - 0.5) * 14;
+    const gsLat = -45 + rand() * 100;
+
+    // Drone: 10–15 km from the ground station, below the cloud deck (3–6 km alt).
+    const dBearing = rand() * Math.PI * 2;
+    const dDistKm = 10 + rand() * 5;
+    const drnLat = gsLat + (Math.cos(dBearing) * dDistKm) / KM_PER_DEG;
+    const drnLon = gsLon + (Math.sin(dBearing) * dDistKm) / (KM_PER_DEG * Math.cos((gsLat * Math.PI) / 180));
+    const drnAlt = +(3 + rand() * 3).toFixed(1);
+
+    // HAPS: 2–5 km horizontally from its drone, in the stratosphere above clouds.
+    const hBearing = rand() * Math.PI * 2;
+    const hDistKm = 2 + rand() * 3;
+    const hapsLat = drnLat + (Math.cos(hBearing) * hDistKm) / KM_PER_DEG;
+    const hapsLon = drnLon + (Math.sin(hBearing) * hDistKm) / (KM_PER_DEG * Math.cos((drnLat * Math.PI) / 180));
+    const hapsAlt = +(18 + rand() * 2).toFixed(1);
+
+    const norm = (lon: number) => +(((lon + 540) % 360) - 180).toFixed(2);
+    out.push(
+      { id: `haps-gen-${n}`, name: `HAPS-${n}`, kind: 'haps', lat: +hapsLat.toFixed(2), lon: norm(hapsLon), altKm: hapsAlt, role: `Stratospheric relay (${region})`, region, health: healthOf() },
+      { id: `drone-gen-${n}`, name: `Drone-${n}`, kind: 'drone', lat: +drnLat.toFixed(2), lon: norm(drnLon), altKm: drnAlt, role: `Low-altitude relay (${region})`, region, health: healthOf() },
+      { id: `ground-gen-${n}`, name: `GS-${n}`, kind: 'ground', lat: +gsLat.toFixed(2), lon: norm(gsLon), altKm: 0, role: `Gateway station (${region})`, region, health: healthOf() },
+    );
+  }
+  return out;
+}
+
 const GENERATED_ASSETS: Asset[] = [
   // LEO constellation — 43 generated + 7 curated = 50 (global coverage)
   ...generateFleet({
