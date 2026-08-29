@@ -175,45 +175,10 @@ const GENERATED_ASSETS: Asset[] = [
     role: 'Constellation capacity relay',
     seed: 1337,
   }),
-  // HAPS — 18 generated + 2 curated = 20, spread around the globe
-  ...generateFleet({
-    kind: 'haps',
-    prefix: 'HAPS',
-    count: 18,
-    startIndex: 3,
-    altMin: 18,
-    altMax: 20,
-    latMin: -45,
-    latMax: 55,
-    role: 'Stratospheric relay',
-    seed: 4242,
-  }),
-  // Relay drones — 18 generated + 2 curated = 20, spread around the globe
-  ...generateFleet({
-    kind: 'drone',
-    prefix: 'Drone',
-    count: 18,
-    startIndex: 3,
-    altMin: 3,
-    altMax: 6,
-    latMin: -50,
-    latMax: 58,
-    role: 'Low-altitude relay',
-    seed: 9001,
-  }),
-  // Ground stations — 18 generated + 2 curated = 20, spread around the globe
-  ...generateFleet({
-    kind: 'ground',
-    prefix: 'GS',
-    count: 18,
-    startIndex: 3,
-    altMin: 0,
-    altMax: 0,
-    latMin: -48,
-    latMax: 60,
-    role: 'Gateway station',
-    seed: 777,
-  }),
+  // HAPS / Drone / GS operate as co-located clusters (site N = HAPS-N + Drone-N + GS-N):
+  // HAPS flies 2–5 km above its drone (above the cloud deck), the drone stays
+  // below the clouds, and the ground station sits 10–15 km away from the drone.
+  ...generateSites(18, 3, 4242),
 ];
 
 export const ASSETS: Asset[] = [
