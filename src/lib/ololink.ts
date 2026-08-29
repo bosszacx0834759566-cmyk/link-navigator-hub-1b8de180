@@ -165,9 +165,9 @@ const GENERATED_ASSETS: Asset[] = [
   // LEO constellation — 43 generated + 7 curated = 50 (global coverage)
   ...generateFleet({
     kind: 'satellite',
-    prefix: 'OL-SAT',
+    prefix: 'LEO',
     count: 43,
-    startIndex: 12,
+    startIndex: 8,
     altMin: 500,
     altMax: 720,
     latMin: -55,
@@ -180,7 +180,7 @@ const GENERATED_ASSETS: Asset[] = [
     kind: 'haps',
     prefix: 'HAPS',
     count: 18,
-    startIndex: 2,
+    startIndex: 3,
     altMin: 18,
     altMax: 20,
     latMin: -45,
@@ -191,7 +191,7 @@ const GENERATED_ASSETS: Asset[] = [
   // Relay drones — 18 generated + 2 curated = 20, spread around the globe
   ...generateFleet({
     kind: 'drone',
-    prefix: 'DRN',
+    prefix: 'Drone',
     count: 18,
     startIndex: 3,
     altMin: 3,
@@ -218,25 +218,25 @@ const GENERATED_ASSETS: Asset[] = [
 
 export const ASSETS: Asset[] = [
   // LEO constellation (orchestrated, not owned) — spread across realistic orbits
-  { id: 'sat-th-1', name: 'OL-SAT-01', kind: 'satellite', lat: 16, lon: 102, altKm: 550, role: 'Optical downlink (Thailand)', region: 'Thailand', health: 'NOMINAL' },
-  { id: 'sat-th-2', name: 'OL-SAT-02', kind: 'satellite', lat: 4, lon: 111, altKm: 585, role: 'Capacity relay (APAC)', region: 'Thailand', health: 'NOMINAL' },
-  { id: 'sat-us-1', name: 'OL-SAT-04', kind: 'satellite', lat: 38, lon: -106, altKm: 545, role: 'Optical downlink (United States)', region: 'United States', health: 'NOMINAL' },
-  { id: 'sat-us-2', name: 'OL-SAT-05', kind: 'satellite', lat: 27, lon: -95, altKm: 605, role: 'Capacity relay (AMER)', region: 'United States', health: 'DEGRADED' },
-  { id: 'sat-pac', name: 'OL-SAT-07', kind: 'satellite', lat: 22, lon: -158, altKm: 640, role: 'Trans-Pacific crosslink', region: 'Pacific', health: 'NOMINAL' },
-  { id: 'sat-atl', name: 'OL-SAT-09', kind: 'satellite', lat: -18, lon: -32, altKm: 700, role: 'Orbital standby', region: 'Atlantic', health: 'NOMINAL' },
-  { id: 'sat-ind', name: 'OL-SAT-11', kind: 'satellite', lat: 48, lon: 62, altKm: 675, role: 'Orbital standby', region: 'Eurasia', health: 'NOMINAL' },
+  { id: 'sat-th-1', name: 'LEO-1', kind: 'satellite', lat: 16, lon: 102, altKm: 550, role: 'Optical downlink (Thailand)', region: 'Thailand', health: 'NOMINAL' },
+  { id: 'sat-th-2', name: 'LEO-2', kind: 'satellite', lat: 4, lon: 111, altKm: 585, role: 'Capacity relay (APAC)', region: 'Thailand', health: 'NOMINAL' },
+  { id: 'sat-us-1', name: 'LEO-3', kind: 'satellite', lat: 38, lon: -106, altKm: 545, role: 'Optical downlink (United States)', region: 'United States', health: 'NOMINAL' },
+  { id: 'sat-us-2', name: 'LEO-4', kind: 'satellite', lat: 27, lon: -95, altKm: 605, role: 'Capacity relay (AMER)', region: 'United States', health: 'DEGRADED' },
+  { id: 'sat-pac', name: 'LEO-5', kind: 'satellite', lat: 22, lon: -158, altKm: 640, role: 'Trans-Pacific crosslink', region: 'Pacific', health: 'NOMINAL' },
+  { id: 'sat-atl', name: 'LEO-6', kind: 'satellite', lat: -18, lon: -32, altKm: 700, role: 'Orbital standby', region: 'Atlantic', health: 'NOMINAL' },
+  { id: 'sat-ind', name: 'LEO-7', kind: 'satellite', lat: 48, lon: 62, altKm: 675, role: 'Orbital standby', region: 'Eurasia', health: 'NOMINAL' },
 
   // HAPS — stratospheric, 18-20 km
-  { id: 'haps-th', name: 'HAPS-TH-01', kind: 'haps', lat: 14.1, lon: 100.9, altKm: 19, role: 'Stratospheric relay over Thailand', region: 'Thailand', health: 'NOMINAL' },
-  { id: 'haps-us', name: 'HAPS-US-01', kind: 'haps', lat: 39.2, lon: -104.4, altKm: 19.5, role: 'Stratospheric relay over United States', region: 'United States', health: 'NOMINAL' },
+  { id: 'haps-th', name: 'HAPS-1', kind: 'haps', lat: 14.1, lon: 100.9, altKm: 19, role: 'Stratospheric relay over Thailand', region: 'Thailand', health: 'NOMINAL' },
+  { id: 'haps-us', name: 'HAPS-2', kind: 'haps', lat: 39.2, lon: -104.4, altKm: 19.5, role: 'Stratospheric relay over United States', region: 'United States', health: 'NOMINAL' },
 
   // Relay drones
-  { id: 'drn-th', name: 'Drone Alpha', kind: 'drone', lat: 13.4, lon: 100.2, altKm: 4, role: 'Low-altitude relay over Thailand', region: 'Thailand', health: 'NOMINAL' },
-  { id: 'drn-us', name: 'Drone Bravo', kind: 'drone', lat: 40.1, lon: -105.4, altKm: 4, role: 'Low-altitude relay over United States', region: 'United States', health: 'NOMINAL' },
+  { id: 'drn-th', name: 'Drone-1', kind: 'drone', lat: 13.4, lon: 100.2, altKm: 4, role: 'Low-altitude relay over Thailand', region: 'Thailand', health: 'NOMINAL' },
+  { id: 'drn-us', name: 'Drone-2', kind: 'drone', lat: 40.1, lon: -105.4, altKm: 4, role: 'Low-altitude relay over United States', region: 'United States', health: 'NOMINAL' },
 
   // Ground stations
-  { id: 'gs-th', name: 'GS Bangkok', kind: 'ground', lat: 13.75, lon: 100.52, altKm: 0, role: 'Primary gateway', region: 'Thailand', health: 'NOMINAL' },
-  { id: 'gs-us', name: 'GS Denver', kind: 'ground', lat: 39.74, lon: -104.99, altKm: 0, role: 'Primary gateway', region: 'United States', health: 'NOMINAL' },
+  { id: 'gs-th', name: 'GS-1', kind: 'ground', lat: 13.75, lon: 100.52, altKm: 0, role: 'Primary gateway', region: 'Thailand', health: 'NOMINAL' },
+  { id: 'gs-us', name: 'GS-2', kind: 'ground', lat: 39.74, lon: -104.99, altKm: 0, role: 'Primary gateway', region: 'United States', health: 'NOMINAL' },
 
   // Customer networks
   { id: 'cus-th', name: 'TH Enterprise Edge', kind: 'customer', lat: 13.9, lon: 100.85, altKm: 0, role: 'Fiber handoff', region: 'Thailand', health: 'NOMINAL' },
