@@ -1618,21 +1618,6 @@ function RegionMarker({
         <ringGeometry args={[r * 0.97, r, 64]} />
         <meshBasicMaterial color={CYAN} transparent opacity={0.4} side={THREE.DoubleSide} depthWrite={false} />
       </mesh>
-      <Html center distanceFactor={2.6} position={[0, r * 1.55, 0.02]} zIndexRange={[18, 0]}>
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onFocus(region);
-          }}
-          className="whitespace-nowrap rounded border border-sky-300/25 bg-[#050a13]/80 px-2 py-1 text-center font-mono uppercase backdrop-blur-sm transition-colors hover:border-sky-300/60"
-        >
-          <span className="block text-[10px] tracking-[0.22em] text-sky-100">{region.name}</span>
-          <span className="block text-[8px] tracking-[0.18em] text-sky-300/60">
-            {counts.assets} assets · {counts.ground} gateway
-          </span>
-        </button>
-      </Html>
     </group>
   );
 }
