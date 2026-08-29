@@ -148,7 +148,7 @@ function generateFleet(spec: FleetSpec): Asset[] {
     const health: Health = rand() < 0.88 ? 'NOMINAL' : rand() < 0.75 ? 'DEGRADED' : 'OFFLINE';
     out.push({
       id: `${spec.kind}-gen-${n}`,
-      name: `${spec.prefix}-${String(n).padStart(2, '0')}`,
+      name: `${spec.prefix}-${n}`,
       kind: spec.kind,
       lat: +lat.toFixed(2),
       lon: +(((lon + 540) % 360) - 180).toFixed(2),
